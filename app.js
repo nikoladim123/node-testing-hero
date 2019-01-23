@@ -1,18 +1,13 @@
-var express = require('express');
-var app = express();
-const expressip = require('express-ip');
-// app.use(expressip().getIpInfoMiddleware);
-var port = process.env.PORT || 8000;
+const express = require('express');
+const path = require('path');
+const PORT = process.env.PORT || 5000;
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-  // console.log(req.ipInfo);
-});
-
-app.get('hello', function (req, res) {
-  res.send('Hello World')
-  // console.log(req.ipInfo);
-});
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 app.listen(port);
 
