@@ -7,12 +7,9 @@ express().use(expressip().getIpInfoMiddleware);
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
-  .get('/', (req, res) => res.send('hellooo'))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+  .get('/', (req, res) => res.send(req.ipInfo))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-  express().get('/ab', function (req, res) {
-      res.send(req.ipInfo);
-  });
 
 // var response;
 // function loadDoc() {
