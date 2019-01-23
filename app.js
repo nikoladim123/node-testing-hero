@@ -4,7 +4,7 @@ const expressip = require('express-ip');
 // app.use(expressip().getIpInfoMiddleware);
 port = process.env.PORT || 80
 
-app.get('/hello', function (req, res) {
+app.get('hello', function (req, res) {
   res.send('Hello World')
   // console.log(req.ipInfo);
 })
