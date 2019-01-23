@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="http://azarask.in/projects/geolocation/MockGeolocation.js"></script>
+  </head>
+  <body>
+<script type="text/javascript">
+  var g = new navigator.GeolocationRequest();
+g.request( function(geolocation){
+  alert( geolocation.longitude + ", " + geolocation.latitude );
+});
+</script>
+  </body>
+</html>
