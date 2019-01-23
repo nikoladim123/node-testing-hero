@@ -1,12 +1,12 @@
 var express = require('express');
 var app = express();
 const expressip = require('express-ip');
+// app.use(expressip().getIpInfoMiddleware);
 port = process.env.PORT || 80
-app.use(expressip().getIpInfoMiddleware);
 
 app.get('/', function (req, res) {
   res.send('Hello World')
-  console.log(req.ipInfo);
+  // console.log(req.ipInfo);
 })
 
 app.listen(port);
