@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 const expressip = require('express-ip');
+port = process.env.PORT || 80
 app.use(expressip().getIpInfoMiddleware);
 
 app.get('/', function (req, res) {
@@ -8,7 +9,7 @@ app.get('/', function (req, res) {
   console.log(req.ipInfo);
 })
 
-app.listen(3000);
+app.listen(port);
 
 // var response;
 // function loadDoc() {
