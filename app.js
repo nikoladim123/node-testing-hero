@@ -7,7 +7,7 @@ express().use(expressip().getIpInfoMiddleware);
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
-  .get('/', (req, res) => res.send(req.ipInfo))
+  .get('/', (req, res) => res.send(req.ip))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
