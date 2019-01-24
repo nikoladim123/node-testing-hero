@@ -9,10 +9,10 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .use(expressip().getIpInfoMiddleware)
   .use(function(req, res, next) {
-      res.header("Access-Control-Allow-Origin", 'https://node-testin.herokuapp.com/api');
-      res.header("Access-Control-Allow-Credentials", true);
-      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+      res.setHeader("Access-Control-Allow-Origin", '*');
+      res.setHeader("Access-Control-Allow-Credentials", true);
+      res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
       next();
   })
   .get('/', (req, res) => {
