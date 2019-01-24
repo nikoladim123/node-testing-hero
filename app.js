@@ -12,7 +12,7 @@ express()
       res.header("Access-Control-Allow-Origin", 'https://pishe.herokuapp.com/');
       res.header("Access-Control-Allow-Credentials", true);
       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorisation');
+      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
       next();
   })
   .get('/', (req, res) => {
