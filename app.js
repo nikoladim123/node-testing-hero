@@ -10,14 +10,14 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .use(expressip().getIpInfoMiddleware)
   .get('/', (req, res) => {
-    // res.redirect('');
+    res.redirect('api');
     ipInfo = req.ipInfo;
     console.log(ipInfo);
   })
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
   .get('/api',(req,res)=>{
     res.send(ipInfo);
-  });
+  })
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 
 
