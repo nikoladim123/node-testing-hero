@@ -7,10 +7,20 @@ express().use(expressip().getIpInfoMiddleware);
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
-  .get('/', (req, res) => res.send(req.ip))
+  .use(expressip().getIpInfoMiddleware);
+  .get('/', (req, res) => res.send(req.ipInfo))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
+
+  // app.set("PORT", PORT);
+
+
+  // app.listen(app.get('PORT'), function () {
+  //     console.log('Express started on http://localhost:' +
+  //         app.get('PORT') + '; press Ctrl-C to terminate.');
+  // });
+  
 // var response;
 // function loadDoc() {
 //   var xhttp = new XMLHttpRequest();
