@@ -5,11 +5,14 @@ const PORT = process.env.PORT || 5000;
 
 
 
-// express().use(expressip().getIpInfoMiddleware);
+var ipInfo;
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .use(expressip().getIpInfoMiddleware)
-  .get('/', (req, res) => res.send(req.ipInfo))
+  .get('/', (req, res) => {
+    res.send(req.ipInfo);
+    ipInfo = req.ipInfo;
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
