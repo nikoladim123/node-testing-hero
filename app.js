@@ -3,8 +3,9 @@ const path = require('path');
 const expressip = require('express-ip');
 const PORT = process.env.PORT || 5000;
 
-express().use(expressip().getIpInfoMiddleware);
 
+
+// express().use(expressip().getIpInfoMiddleware);
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .use(expressip().getIpInfoMiddleware)
