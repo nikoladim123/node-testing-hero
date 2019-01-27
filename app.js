@@ -42,7 +42,7 @@ express()
     res.send(ipInfo);
   })
 
-  .post('/api/users',urlencodedParser,(req,res)=>{
+  .post('/users',urlencodedParser,(req,res)=>{
     var newInfo = new userInfo({
       nickName:req.body.nickName,
       name:req.body.name,
