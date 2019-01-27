@@ -15,16 +15,16 @@ const userInfoSchema = new Schema({
   email:String
 });
 
-const userInfo = mongoose.model('old user',userInfoSchema);
+const userInfo = mongoose.model('newuser',userInfoSchema);
 mongoose.connect('mongodb://timbe:Timbetimbe91!@ds211613.mlab.com:11613/timbe');
 // mongoose.connect('mongodb://timbe:Timbetimbe91!@ds213615.mlab.com:13615/users');
 // mongoose.connect('mongodb://timbe:Timbetimbe91!@ds213615.mlab.com:13615/users');
 // mongodb://<dbuser>:<dbpassword>@ds213615.mlab.com:13615/users
-
+// https://node-testin.herokuapp.com/users
 var ipInfo;
 express()
   .use(express.static(path.join(__dirname, 'public')))
-
+  .use(bodyParser.json())
   .use(expressip().getIpInfoMiddleware)
   .use(function(req, res, next) {
       res.setHeader("Access-Control-Allow-Origin", '*');
@@ -49,8 +49,8 @@ express()
       password:req.body.password,
       email:'req.body.email'
   });
+  console.log(req.body);
   newInfo.save();
-    console.log(req.body);
     // userInfo = req.body;
   })
 
